@@ -14,7 +14,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 @EnableAutoConfiguration
 public class DataApplication extends SpringBootServletInitializer {
 
-	private static final Logger log = LoggerFactory.getLogger(DataApplication.class);
+	private static final Logger log = LoggerFactory.getLogger(DataApplication.class);  
 	
 	public static void main(String[] args) {
 		log.warn("Starting App");
