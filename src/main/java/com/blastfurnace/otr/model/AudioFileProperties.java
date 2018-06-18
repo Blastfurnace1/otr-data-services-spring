@@ -1,0 +1,176 @@
+package com.blastfurnace.otr.model;
+
+
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
+
+
+import com.blastfurnace.otr.reflection.FieldProperties;
+import com.blastfurnace.otr.reflection.Utils;
+
+import lombok.Data;
+
+@Entity
+@XmlRootElement
+@Table(name = "audio_file_properties", schema = "otr_mp3")
+@Data
+public class AudioFileProperties {
+	
+	// Get the names of all of the fields in the audio file properties class
+	public static final List<FieldProperties> fieldDefinitions = Utils.getFieldNames(new AudioFileProperties());
+
+	
+	@Id
+    @GeneratedValue
+    private Long id;
+	
+	@NotNull
+	@NotEmpty
+	@Size(max = 20)
+	@Column(name = "disc_id")
+	private String discId = "";
+	
+	@NotNull
+	@NotEmpty
+	private String directory = "";
+	
+	@NotNull
+	@NotEmpty
+	@Size(max = 150)
+	@Column(name = "file_name")
+	private String filename = "";
+	
+	@NotNull
+	@NotEmpty
+	@Column(name = "file_type")
+	private String fileType = "";
+	
+	
+	// bitrate kilobytes per second
+	@NotNull
+	private Integer bitrate = 0;
+	
+	@NotNull
+	@Column(name = "audio_sampling_rate")
+	private Integer audioSamplingRate = 0;
+	
+	// Number of Audio Channels
+	@NotNull
+	@Column(name = "audio_channels")
+	private Integer audioChannels = 0;
+	
+	// duration minutes
+	@NotNull
+	private Integer duration = 0;
+
+	// duration seconds + fractions
+	@NotNull
+	@Column(name = "precise_duration")
+	private Float preciseDuration = 0.0f;
+	
+	@NotNull
+	@Column(name = "file_length")
+	private Long fileLength = 0l;
+	
+	@NotNull
+	private Integer zipped = 0;
+	
+	@NotNull
+	@NotEmpty
+	@Column(name = "zip_file")
+	private String zipFile = "";
+	
+	@NotNull
+	@Column(name = "audio_file")
+	private Integer audioFile	= 0;
+	
+	@NotNull
+	@NotEmpty
+	@Column(name = "encoding_type")
+	private String encodingType = "Non MP3 File";
+	
+	@NotNull
+	@NotEmpty
+	@Column(name = "extra_encode_info")
+	private String extraEncodeInfo = "";
+	
+	@NotNull
+	@Column(name = "variable_bitrate")
+	private Integer variableBitrate	= 0;
+	
+	@NotNull
+	@Column(name = "series_id")
+	private Integer seriesId	= 0;
+	
+	@NotNull
+	@Column(name = "episode_id")
+	private Integer episodeId	= 0;
+	
+	@NotNull
+	@Column(name = "source_id")
+	private Integer sourceId	= 0;
+	
+	@NotNull
+	@NotEmpty
+	private String description = "";
+	
+	@NotNull
+	private Integer rating	= 0;
+	
+	@NotNull
+	private Integer heard	= 0;
+	
+	@NotNull
+	@Column(name = "audio_quality")
+	private Integer audioQuality	= 0;
+	
+	@NotNull
+	@Column(name = "encoding_quality")
+	private Integer encodingQuality	= 0;
+	
+	@NotNull
+	@Column(name = "media_id")
+	private Integer mediaId	= 0;
+		
+	private String genre = "";
+
+	private String title = "";
+
+	@Column(name = "track_no")
+	private String trackNo = "";
+
+	private String year = "";
+
+	private String album = "";
+
+	private String artist = "";
+
+	private String comment = "";
+
+	private Integer indexed	= 0;
+	
+	@NotNull
+	@Column(name = "series_name")
+	private String seriesName = "";
+	
+	@NotNull
+	@Column(name = "episode_name")
+	private String episodeName = "";
+	
+	@NotNull
+	@Column(name = "episode_number")
+	private Integer episodeNumber = 0;
+	
+	@NotNull
+	@Column(name = "broadcast_date")
+	private String broadcastDate = "";
+}
