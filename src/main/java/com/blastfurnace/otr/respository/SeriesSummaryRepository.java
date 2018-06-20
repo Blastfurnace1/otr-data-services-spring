@@ -10,7 +10,7 @@ import com.blastfurnace.otr.model.SeriesSummary;
 
 public interface SeriesSummaryRepository extends CrudRepository<SeriesSummary, Long> {
 
-	@Query("SELECT p FROM SeriesAlias p WHERE p.seriesId = :sId")
+	@Query("SELECT p FROM SeriesSummary p WHERE p.seriesId = :sId")
 	public List<SeriesSummary> findBySeriesId(@Param("sId") Long sId);
 }
 
