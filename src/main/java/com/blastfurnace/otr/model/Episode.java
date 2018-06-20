@@ -20,7 +20,7 @@ import lombok.Data;
 
 @Entity
 @XmlRootElement
-@Table(name = "audio_file_properties", schema = "otr_mp3")
+@Table(name = "episodes", schema = "otr_mp3")
 @Data
 public class Episode {
 	
@@ -34,8 +34,7 @@ public class Episode {
 	
 	@NotNull
 	@NotEmpty
-	@Column(name = "ep_exists")
-	private Integer episodeExists;
+	private Integer exists;
 	
 	@NotNull
 	@Column(name = "episode_number")

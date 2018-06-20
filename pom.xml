@@ -34,7 +34,7 @@
     
     <profiles>
     	<profile>
-    		<id>release</id>
+    		<id>dev</id>
     		<activation>
                 <activeByDefault>true</activeByDefault>
             </activation>

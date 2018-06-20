@@ -19,7 +19,7 @@ import lombok.Data;
 
 @Entity
 @XmlRootElement
-@Table(name = "series_summary", schema = "otr_mp3")
+@Table(name = "episode_summary", schema = "otr_mp3")
 @Data
 public class EpisodeSummary {
 
