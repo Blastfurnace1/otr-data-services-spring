@@ -30,9 +30,11 @@
         <const.megabyte>1048576</const.megabyte>
     </properties>
     
+   
+    
     <profiles>
     	<profile>
-    		<id>dev</id>
+    		<id>release</id>
     		<activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
