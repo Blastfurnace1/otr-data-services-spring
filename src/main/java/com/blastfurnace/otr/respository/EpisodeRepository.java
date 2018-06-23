@@ -1,5 +1,7 @@
 package com.blastfurnace.otr.respository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.blastfurnace.otr.model.Episode;
@@ -41,6 +43,7 @@ public interface ParkrunCourseRepository extends CrudRepository, ParkrunCourseRe
 
 public interface EpisodeRepository extends JpaRepository<Episode, Long>, EpisodeRepositoryCustom {
 
+	public List<Episode> findBySeriesId(Long seriesId);
 }
 
 

@@ -44,13 +44,15 @@ public class Episode {
 	@Column(name = "broadcast_date")
 	private String broadcastDate = "";
 	
+	@NotNull
 	private String title = "";
 	
+	@NotNull
 	private Integer have = 0;
 	
 	@NotNull
 	@Column(name = "series_id")
-	private Integer seriesId	= 0;
+	private Long seriesId	= 0l;
 	
 	@NotNull
 	@NotEmpty

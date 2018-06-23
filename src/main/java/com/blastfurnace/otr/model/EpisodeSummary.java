@@ -36,24 +36,30 @@ public class EpisodeSummary {
 	
 	@NotNull
 	@Column(name = "episode_id")
-	private Integer episodeId	= 0;
+	private Long episodeId;
 	
 	@NotNull
 	@NotEmpty
 	private String summary = "";
 	
-	private Integer number = 0;
+	@NotNull
+	@Column(name = "episode_number")
+	private Integer episodeNumber = 0;
 	
+	@NotNull
 	private String title = "";
 	
 	@NotNull
 	@Column(name = "broadcast_date")
 	private String broadcastDate = "";
 	
+	@NotNull
 	private String length = "";
 	
+	@NotNull
 	private String broadcaster = "";
 	
+	@NotNull
 	private String sponsor = "";
 	
 	@NotNull

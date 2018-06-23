@@ -109,11 +109,11 @@ public class AudioFileProperties {
 	
 	@NotNull
 	@Column(name = "series_id")
-	private Integer seriesId	= 0;
+	private Long seriesId	= 0l;
 	
 	@NotNull
 	@Column(name = "episode_id")
-	private Integer episodeId	= 0;
+	private Long episodeId	= 0l;
 	
 	@NotNull
 	@Column(name = "source_id")
@@ -140,22 +140,29 @@ public class AudioFileProperties {
 	@NotNull
 	@Column(name = "media_id")
 	private Integer mediaId	= 0;
-		
+	
+	@NotNull
 	private String genre = "";
 
+	@NotNull
 	private String title = "";
 
 	@Column(name = "track_no")
 	private String trackNo = "";
 
+	@NotNull
 	private String year = "";
 
+	@NotNull
 	private String album = "";
 
+	@NotNull
 	private String artist = "";
 
+	@NotNull
 	private String comment = "";
 
+	@NotNull
 	private Integer indexed	= 0;
 	
 	@NotNull

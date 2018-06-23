@@ -49,11 +49,27 @@ public class EpisodeServiceImpl implements EpisodeService {
 		Optional<Episode> episode = episodeRepository.findById(id);
 		if (episode.isPresent()) {
 			theEpisode.setEpisode(episode.get());
-			theEpisode.setSummaries(episodeSummaryRepository.findBySeriesId(id));
+			theEpisode.setSummaries(episodeSummaryRepository.findByEpisodeId(theEpisode.getEpisode().getId()));
 		} 
 		
 		return theEpisode;
 	}
+	
+	@Override
+	public List<EpisodeDataWrapper> getSeriesEpisodes(Long seriesId) {
+		List<EpisodeDataWrapper> theEpisodes = new ArrayList<EpisodeDataWrapper>();
+		
+		List<Episode> episodes = episodeRepository.findBySeriesId(seriesId);
+		for (Episode episode : episodes) {
+			EpisodeDataWrapper theEpisode = new EpisodeDataWrapper();
+			theEpisode.setEpisode(episode);
+			theEpisode.setSummaries(episodeSummaryRepository.findByEpisodeId(episode.getId()));
+			theEpisodes.add(theEpisode);
+		} 
+		
+		return theEpisodes;
+	}
+
 
 	/* (non-Javadoc)
 	 * @see com.blastfurnace.otr.service.EpisodeService#delete(java.lang.Long)

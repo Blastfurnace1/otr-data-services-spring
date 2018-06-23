@@ -1,5 +1,7 @@
 package com.blastfurnace.otr.respository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.blastfurnace.otr.model.AudioFileProperties;
@@ -40,6 +42,8 @@ public interface ParkrunCourseRepository extends CrudRepository, ParkrunCourseRe
 **/
 
 public interface AudioRepository extends JpaRepository<AudioFileProperties, Long>, AudioRepositoryCustom {
+	
+	public List<AudioFileProperties> findBySeriesIdAndEpisodeId(Long seriesId, Long episodeId);
 
 }
 
