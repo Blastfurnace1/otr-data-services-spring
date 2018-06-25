@@ -2,15 +2,11 @@ package com.blastfurnace.otr.util;
 
 public class Utils {
 	
+	/** Get the long value for a String; if unable to parse - return a -1. */
 	public static long getLong(String value) {
-		long returnValue = 0;
 		try {
-			returnValue = Long.parseLong(value);
-		} catch (Exception e) {
-			returnValue = -1;
-		}
-		return returnValue;
+			return Long.parseLong(value);
+		} catch (Exception e) {	}
+		return -1;
 	}
-
-	
 }

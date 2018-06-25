@@ -1,18 +1,22 @@
 package com.blastfurnace.otr.service;
 
+import java.util.List;
+
 import com.blastfurnace.otr.model.AudioFileProperties;
 import com.blastfurnace.otr.rest.request.QueryData;
 
 public interface AudioService {
 
-	Long getResultsCount(QueryData qry);
+	public Long getResultsCount(QueryData qry);
 
-	Iterable<AudioFileProperties> query(QueryData qry);
+	public Iterable<AudioFileProperties> query(QueryData qry);
 
-	AudioFileProperties get(Long id);
+	public AudioFileProperties get(Long id);
 
-	void delete(Long id);
+	public void delete(Long id);
 
-	AudioFileProperties save(AudioFileProperties series);
+	public AudioFileProperties save(AudioFileProperties series);
+	
+	public List<AudioFileProperties> findByDirectoryFilenameAndDiscId(String directory, String filename, String discId);
 
 }

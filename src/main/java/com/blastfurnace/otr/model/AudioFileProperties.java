@@ -1,6 +1,7 @@
 package com.blastfurnace.otr.model;
 
 
+import java.io.File;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -28,6 +29,7 @@ public class AudioFileProperties {
 	// Get the names of all of the fields in the audio file properties class
 	public static final List<FieldProperties> fieldDefinitions = Utils.getFieldNames(new AudioFileProperties());
 
+	public AudioFileProperties () {}
 	
 	@Id
     @GeneratedValue

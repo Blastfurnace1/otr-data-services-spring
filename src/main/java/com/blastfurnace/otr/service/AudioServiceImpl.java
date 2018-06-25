@@ -1,5 +1,6 @@
 package com.blastfurnace.otr.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,5 +45,12 @@ public class AudioServiceImpl implements AudioService {
 	@Override
 	public AudioFileProperties save(AudioFileProperties series) {
 		return repository.save(series);
+	}
+
+	@Override
+	public List<AudioFileProperties> findByDirectoryFilenameAndDiscId(String directory, String filename,
+			String discId) {
+		
+		return repository.findByDirectoryFilenameAndDiscId(directory, filename, discId);
 	}
 }

@@ -9,7 +9,7 @@ public class ObjectData<T> {
 	
 	    // An object of type T is declared
 	
-	    T data;
+	    private T data;
 	    public ObjectData(T data) {  
 	    	this.data = data;
 	    

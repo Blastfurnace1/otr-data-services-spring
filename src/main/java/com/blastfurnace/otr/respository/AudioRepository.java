@@ -3,6 +3,8 @@ package com.blastfurnace.otr.respository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.blastfurnace.otr.model.AudioFileProperties;
 
@@ -45,6 +47,8 @@ public interface AudioRepository extends JpaRepository<AudioFileProperties, Long
 	
 	public List<AudioFileProperties> findBySeriesIdAndEpisodeId(Long seriesId, Long episodeId);
 
+	@Query("SELECT p FROM AudioFileProperties p WHERE p.directory = :directory AND p.filename = :filename AND p.discId = :discId")
+	public List<AudioFileProperties> findByDirectoryFilenameAndDiscId(@Param("directory") String directory, @Param("filename") String filename, @Param("discId") String discId);
 }
 
 
