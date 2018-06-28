@@ -31,10 +31,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.blastfurnace.otr.model.AudioFileProperties;
+import com.blastfurnace.otr.data.audiofile.AudioService;
+import com.blastfurnace.otr.data.audiofile.model.AudioFileProperties;
 
 import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.Assert.assertTrue;
 
 /**
  * Integration Tests for Audio Services
@@ -55,9 +55,24 @@ public class DataApplicationTests {
 	@Autowired
 	private TestRestTemplate testRestTemplate;
 	
+	@Autowired
+	AudioService audioService;
+	
+	/** local running instance of embedded tomcat visa-vis Spring. */
 	private String testServer = "http://localhost:";
 	
+	/** Get a new AudioFileProperties Object. */
+	private AudioFileProperties getNewAudioFileProperties() {
+		AudioFileProperties afp = new AudioFileProperties();
+		afp.setDirectory("C:/temp");
+		afp.setFilename("Duuger.txt");
+		afp.setDiscId("MPX_1");
+		afp.setFileType("MPX");
+		return afp;
+	}
+	
 	@Test
+	/** Make sure the server runs. */
 	public void shouldReturn200WhenSendingRequestToManagementEndpoint() throws Exception {
 		@SuppressWarnings("rawtypes")
 		ResponseEntity<Map> entity = this.testRestTemplate.getForEntity(
@@ -66,5 +81,20 @@ public class DataApplicationTests {
 		then(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 	}
 	
-	
+	@Test
+	/** Test Data Access for Audio file Properties. */
+	public void shouldPerformAudioFilePropertiesRecordActions() throws Exception {
+		AudioFileProperties afp = getNewAudioFileProperties();
+		// add
+		AudioFileProperties newAfp = audioService.save(afp);
+		then(newAfp.getEncodingType().equals(afp.getEncodingType()));
+		// get
+		newAfp = audioService.get(newAfp.getId());
+		then(newAfp.getEncodingType().equals(afp.getEncodingType()));
+		// delete
+		audioService.delete(newAfp.getId());
+		// make sure its deleted
+		newAfp = audioService.get(newAfp.getId());
+		then(null == newAfp);
+	}
 }

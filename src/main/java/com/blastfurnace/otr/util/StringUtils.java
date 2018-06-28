@@ -41,7 +41,7 @@ public class StringUtils {
 			if (uppercase(filenameArray[i]) ||
 					lowercase(filenameArray[i]) ||
 					isANumber(filenameArray[i]) ||
-					inExceptionList(filenameArray[i]) == false) {
+					inExceptionList(filenameArray[i])) {
 				replace[i] = filenameArray[i];
 			} else {
 				replace[i] = ' ';

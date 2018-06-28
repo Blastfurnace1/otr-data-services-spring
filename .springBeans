@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
-		<config>java:com.blastfurnace.otr.DataApplication</config>
+		<config>java:com.blastfurnace.otr.fileservice.DataApplication</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

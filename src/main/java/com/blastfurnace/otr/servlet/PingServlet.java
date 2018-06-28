@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
+import com.blastfurnace.otr.data.audiofile.AudioService;
 import com.blastfurnace.otr.rest.request.QueryData;
-import com.blastfurnace.otr.service.AudioService;
 
 
 /**

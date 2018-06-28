@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.blastfurnace.otr.reflection.FieldProperties;
+import com.blastfurnace.otr.util.reflection.FieldProperties;
 
 public class CSVUtils {
 

@@ -15,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.boot.web.server.WebServerException;
 import org.springframework.web.context.support.SpringBeanAutowiringSupport;
 
-
 /**
  * Servlet implementation class FileServer
  */
