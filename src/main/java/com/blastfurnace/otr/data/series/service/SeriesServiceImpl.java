@@ -49,7 +49,7 @@ public class SeriesServiceImpl implements SeriesService {
 	 * @see com.blastfurnace.otr.service.SeriesService#get(java.lang.Long)
 	 */
 	@Override
-	public SeriesDataWrapper get(Long id) {
+	public SeriesDataWrapper getComplex(Long id) {
 		SeriesDataWrapper theSeries = new SeriesDataWrapper();
 		
 		Optional<Series> series = seriesRepository.findById(id);
@@ -95,5 +95,17 @@ public class SeriesServiceImpl implements SeriesService {
 		}
 		
 		return theSeries;
+	}
+
+	@Override
+	public Series get(Long id) {
+		Optional<Series> series = seriesRepository.findById(id);
+		return series.get();
+	}
+
+	@Override
+	public Series save(Series series) {
+		// TODO Auto-generated method stub
+		return seriesRepository.save(series);
 	}
 }

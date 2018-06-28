@@ -44,7 +44,7 @@ public class EpisodeServiceImpl implements EpisodeService {
 	 * @see com.blastfurnace.otr.service.EpisodeService#get(java.lang.Long)
 	 */
 	@Override
-	public EpisodeDataWrapper get(Long id) {
+	public EpisodeDataWrapper getComplex(Long id) {
 		EpisodeDataWrapper theEpisode = new EpisodeDataWrapper();
 		
 		Optional<Episode> episode = episodeRepository.findById(id);
@@ -99,5 +99,16 @@ public class EpisodeServiceImpl implements EpisodeService {
 		}
 		
 		return theEpisode;
+	}
+
+	@Override
+	public Episode get(Long id) {
+		Optional<Episode> episode = episodeRepository.findById(id);
+		return episode.get();
+	}
+
+	@Override
+	public Episode save(Episode audio) {
+		return episodeRepository.save(audio);
 	}
 }
